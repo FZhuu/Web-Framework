@@ -5,7 +5,7 @@ import Slider from './layouts/slider';
 
 function App() {
   return (
-    <div className="container">
+    <div className="container-fluid">
       <Menu />
       <Slider></Slider>
     </div>
