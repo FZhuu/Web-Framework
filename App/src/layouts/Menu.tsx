@@ -1,10 +1,11 @@
 import React from "react";
 import UserIcon from "./Images/person-circle.svg";
 import {BrowserRouter,Routes, Route, Link} from "react-router-dom";
+import Login from "../controller/login";
 
 const Menu: React.FC = () => {
     return (
-        <nav className="navbar navbar-expand-lg bg-body-tertiary MenuNav">
+        <nav className="navbar navbar-expand-lg bg-body-tertiary MenuNav" style={{ padding: "0" }}>
             <div className="container-fluid navdiv">
                 <a className="navbar-brand" href="#">Renner</a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,17 +39,11 @@ const Menu: React.FC = () => {
                             Login / Signin
                         </button>
                         <ul className="dropdown-menu">
-                            <li><a className="dropdown-item" href="#">Cadastro</a></li>
-                            <li><a className="dropdown-item" href="#">Login</a></li>
+                            <li><a className="dropdown-item" href="/cadastro">Cadastro</a></li>
+                            <li><a className="dropdown-item" href="/login">Login</a></li>
                         </ul>
                     </div>
-                    {/* <a href="/SignUp" style={{width: "4%", height: "4%", margin:"1%"}}><img src={UserIcon} alt="User" style={{width: "100%", height: "100%"}}/></a> */}
                 </div>
-                <BrowserRouter>
-                    <Routes>
-                        {/* <Route path="/SignUp" element={<SignUp />} /> */}
-                    </Routes>
-                </BrowserRouter>
             </div>
         </nav>
     )
