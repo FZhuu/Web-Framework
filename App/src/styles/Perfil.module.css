@@ -1,0 +1,572 @@
+main {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: start;
+    margin: 3rem 0;
+    gap: 1dvi;
+    aside {
+        width: 25%;
+        display: flex;
+        flex-direction: column;
+        padding: 1rem 2rem;
+        .FotoNome {
+            display: flex;
+            flex-direction: row;
+            gap: 1dvi;
+            .imgPerfil {
+                background-color: #302163;
+                background-image: url(../imgs/SVGs/perfil.svg);
+                background-size: cover;
+                background-position: center;
+                width: 5dvi;
+                height: 5dvi;
+                border-radius: 4rem;
+                border: 2px solid #302163;
+            }
+            h4 {
+                margin: 0;
+                font-size: 1.8dvi;
+                font-weight: bold;
+                color:#3E996F;
+            }
+            h5 {
+                margin: 0;
+                font-size: 1.3dvi;
+                color: #302163;
+            }
+        }
+        hr {
+            margin: 1rem 0;
+        }
+        .opcoes {
+            display: inline-flex;
+            width: 100%;
+            height: 1.81dvi;
+            align-items: center;
+            margin-bottom: 0.7dvi;
+            svg path {
+                stroke: #302163;
+            }
+            button {
+                display: inline;
+                border: none;
+                background-color: transparent;
+                width: 90%;
+                height: 80%;
+                font-size: 1.2dvi;
+                font-weight: bold;
+                color: #302163;
+                cursor: pointer;
+                text-align: start;
+                padding: 0 0.3dvi;
+            }
+        }
+        .AddEstabelecimento {
+            display: flex;
+            border:none;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5dvi;
+            width: 100%;
+            color: #3E996F;
+            place-self: center;
+            background-color: transparent;
+            border-radius: 1.5dvi;
+            padding: 0.5dvi 1dvi;
+        }
+        .AddEstabelecimento:hover {
+            background-color: #FFFF;
+            cursor: pointer;
+        }
+        .AddEstabelecimento:active {
+            transform: scale(0.95);
+        }
+    }
+    .informacao {
+        background-color: #FFFF;
+        width: 65%;
+        padding: 1dvi;
+        place-self: start;
+        h1 {
+            font-size: 2.5dvi;
+            font-weight: bold;
+            margin: 0;
+            padding: 1rem 0 0 1rem;
+            height: 3.5dvi;
+            color: #302163;
+        }
+        p {
+            font-size: 1dvi;
+            margin: 0;
+            padding: 0 0 0 1rem;
+        }
+        hr {
+            margin: 2rem 1rem;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        .NomeEmailFoto {
+            display: flex;
+            flex-direction: row;
+            gap: 10dvi;
+            justify-content: center;
+            margin: 0 3dvi 0 1dvi;
+            .NomeEmail {
+                width: 65%;
+            }
+            .nome, .email {
+                display:flex;
+                flex-direction: column;
+                input {
+                    border:1px solid rgba(62, 62, 62, 0.3);
+                    border-radius: 0.3dvi;
+                    width: 100%;
+                    padding-left: 0.3dvi;
+                }
+                input:focus {
+                    outline:none;
+                }
+                label {
+                    font-weight: bold;
+                    font-size: 1.3dvi;
+                    color: #3E996F;
+                    margin-left: 0.5dvi;
+                }
+            }
+            .nome {
+                margin-bottom: 0.5dvi;
+            }
+            .InputFoto {
+                width: 20%;
+                display: flex;
+                justify-content: end;
+                border-left:1px solid rgba(62, 62, 62, 0.21);
+                label {
+                    .Perfilimg {
+                        background-color: #302163;
+                        background-image: url(../imgs/SVGs/perfil.svg);
+                        background-size: cover;
+                        background-position: center;
+                        width: 8dvi;
+                        height: 8dvi;
+                        border-radius: 4rem;
+                        border: 2px solid #302163;
+
+                    }
+                    svg {
+                        background-color: #FFFF;
+                        border: 2px solid #FFFF;
+                        border-radius: 4rem;
+                        position: absolute;
+                        translate: 230% -90%;
+                    }
+                }
+                label:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+        .DtnascCpf {
+            display: flex;
+            flex-direction: row;
+            justify-content: start;
+            gap: 2dvi;
+            margin: 0 1dvi;
+            .datanasc, .cpf {
+                display:flex;
+                flex-direction: column;
+                width: 28.5%;
+                input {
+                    border:1px solid rgba(62, 62, 62, 0.3);
+                    border-radius: 0.3dvi;
+                    height: 1.7dvi;
+                    padding-left: 0.3dvi;
+                }
+                input:focus {
+                    outline:none;
+                }
+                label {
+                    font-weight: bold;
+                    font-size: 1.3dvi;
+                    color: #3E996F;
+                    margin-left: 0.5dvi;
+                }
+            }
+        }
+        .btns {
+            margin: 4dvi 4dvi 0 0;
+            place-self: end;
+            .mudarcampos {
+                background-color: #302163;
+                border: none;
+                border-radius: 1dvi;
+                color: #FFFF;
+                font-size: 1dvi;
+                padding: 0.3dvi 0.5dvi;
+                cursor: pointer;
+            }
+            .BtnCancelar {
+                background-color: #302163;
+                border: none;
+                border-radius: 1dvi;
+                color: #FFFF;
+                font-size: 1dvi;
+                padding: 0.3dvi 0.5dvi;
+                cursor: pointer;
+                width: 5dvi;
+            }
+            .BtnSalvar {
+                background-color: #302163;
+                border: none;
+                border-radius: 1dvi;
+                color: #FFFF;
+                font-size: 1dvi;
+                padding: 0.3dvi 0.5dvi;
+                cursor: pointer;
+                width: 5dvi;
+            }
+        }
+        .SenhaAtual, .NovaSenha, .CheckNovaSenha {
+            display:flex;
+            flex-direction: column;
+            width: 50%;
+            margin-left: 1dvi;
+            input {
+                border:1px solid rgba(62, 62, 62, 0.3);
+                border-radius: 0.3dvi;
+                height: 1.7dvi;
+                padding-left: 0.3dvi;
+            }
+            input:focus {
+                outline:none;
+            }
+            label {
+                font-weight: bold;
+                font-size: 1.3dvi;
+                color: #3E996F;
+                margin-left: 0.5dvi;
+            }
+            .imgOlho {
+                width: 100%;
+                height: 100%;
+            }
+
+            .DivOlho {
+                place-self: flex-end;
+                width: 1.5rem;
+                height: 1.5rem;
+                position: absolute;
+                margin-top: 1.9dvi;
+                margin-right: 0.2rem;
+                cursor: pointer;
+            }
+
+        }
+        .NomeEmailFotoEstabe {
+            display:flex;
+            flex-direction: row;
+            .NomeEmailEstabele {
+                display:flex;
+                flex-direction: column;
+                width: 65%;
+                gap: 1dvi;
+                padding-right: 1dvi;
+                .nomeEstabele {
+                    display: flex;
+                    flex-direction: column;
+                    label {
+                        font-weight: bold;
+                        font-size: 1.3dvi;
+                        color: #3E996F;
+                        margin-left: 0.5dvi;
+                    }
+                    input {
+                        border:1px solid rgb(62, 62, 62);
+                        border-radius: 0.3dvi;
+                        width: 100%;
+                        padding-left: 0.3dvi;
+                    }
+                }
+                .emailEstabele {
+                    display: flex;
+                    flex-direction: column;
+                    label {
+                        font-weight: bold;
+                        font-size: 1.3dvi;
+                        color: #3E996F;
+                        margin-left: 0.5dvi;
+                    }
+                    input {
+                        border:1px solid rgb(62, 62, 62);
+                        border-radius: 0.3dvi;
+                        width: 100%;
+                        padding-left: 0.3dvi;
+                    }
+                }
+                .TelefoneCnpj {
+                    display:flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    gap:1dvi;
+                    .telefone {
+                        display: flex;
+                        flex-direction: column;
+                        label {
+                            font-weight: bold;
+                            font-size: 1.3dvi;
+                            color: #3E996F;
+                            margin-left: 0.5dvi;
+                        }
+                        input {
+                            border:1px solid rgb(62, 62, 62);
+                            border-radius: 0.3dvi;
+                            width: 100%;
+                            padding-left: 0.3dvi
+                        }
+                    }
+                    .cnpj {
+                        display: flex;
+                        flex-direction: column;
+                        width:  35%;
+                        label {
+                            font-weight: bold;
+                            font-size: 1.3dvi;
+                            color: #3E996F;
+                            margin-left: 0.5dvi;
+                        }
+                        input {
+                            border:1px solid rgb(62, 62, 62);
+                            border-radius: 0.3dvi;
+                            width: 100%;
+                            padding-left: 0.3dvi
+                        }
+                    }
+                    .cep {
+                        display: flex;
+                        flex-direction: column;
+                        width: 27%;
+                        label {
+                            font-weight: bold;
+                            font-size: 1.3dvi;
+                            color: #3E996F;
+                            margin-left: 0.5dvi;
+                        }
+                        input {
+                            border:1px solid rgb(62, 62, 62);
+                            border-radius: 0.3dvi;
+                            width: 100%;
+                            padding-left: 0.3dvi
+                        }
+                    }
+                }
+                .Endereco {
+                    display:flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    gap:1dvi;
+                    .RuaNumero {
+                        display: flex;
+                        flex-direction: row;
+                        gap: 2dvi;
+                        .rua {
+                            display: flex;
+                            flex-direction: column;
+                            width: 75%;
+                            label {
+                                font-weight: bold;
+                                font-size: 1.3dvi;
+                                color: #3E996F;
+                                margin-left: 0.5dvi;
+                            }
+                            input {
+                                border:1px solid rgba(62, 62, 62, 0.3);
+                                border-radius: 0.3dvi;
+                                width: 100%;
+                                padding-left: 0.3dvi
+                            }
+                        }
+                        .numero {
+                            display: flex;
+                            flex-direction: column;
+                            width: 20%;
+                            label {
+                                font-weight: bold;
+                                font-size: 1.3dvi;
+                                color: #3E996F;
+                                margin-left: 0.5dvi;
+                            }
+                            input {
+                                border:1px solid rgb(62, 62, 62);
+                                border-radius: 0.3dvi;
+                                width: 100%;
+                                padding-left: 0.3dvi
+                            }
+                        }
+                    }
+                    .complemento {
+                        display: flex;
+                        flex-direction: column;
+                        width: 100%;
+                        label {
+                            font-weight: bold;
+                            font-size: 1.3dvi;
+                            color: #3E996F;
+                            margin-left: 0.5dvi;
+                        }
+                        input {
+                            border:1px solid rgb(62, 62, 62);
+                            border-radius: 0.3dvi;
+                            width: 100%;
+                            padding-left: 0.3dvi
+                        }
+                    }
+                    .BairroCidadeEstado {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+                        .bairro {
+                            display: flex;
+                            flex-direction: column;
+                            width: 32%;
+                            label {
+                                font-weight: bold;
+                                font-size: 1.3dvi;
+                                color: #3E996F;
+                                margin-left: 0.5dvi;
+                            }
+                            input {
+                                border:1px solid rgba(62, 62, 62, 0.3);
+                                border-radius: 0.3dvi;
+                                width: 100%;
+                                padding-left: 0.3dvi
+                            }
+                        }
+                        .cidade {
+                            display: flex;
+                            flex-direction: column;
+                            width: 32%;
+                            label {
+                                font-weight: bold;
+                                font-size: 1.3dvi;
+                                color: #3E996F;
+                                margin-left: 0.5dvi;
+                            }
+                            input {
+                                border:1px solid rgba(62, 62, 62, 0.3);
+                                border-radius: 0.3dvi;
+                                width: 100%;
+                                padding-left: 0.3dvi
+                            }
+                        }
+                        .estado {
+                            display: flex;
+                            flex-direction: column;
+                            width: 32%;
+                            label {
+                                font-weight: bold;
+                                font-size: 1.3dvi;
+                                color: #3E996F;
+                                margin-left: 0.5dvi;
+                            }
+                            input {
+                                border:1px solid rgba(62, 62, 62, 0.3);
+                                border-radius: 0.3dvi;
+                                width: 100%;
+                                padding-left: 0.3dvi
+                            }
+                        }
+                    }
+                }
+            }
+            .InputFotoEstabele {
+                display:flex;
+                flex-direction: column;
+                padding: 1dvi;
+                width: 35%;
+                height: 33.7dvi;
+                gap: 1dvi;
+                .Estabelecimentoimg {
+                    background-image: url("https://placehold.co/300x400?text=Adicione+sua+foto");
+                    background-size: cover;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-color: #3E996F;
+                    width: 100%;
+                    height: 30dvi;
+                    border-radius: 1dvi;
+                    .prevImg {
+                        background-color: rgba(0, 0, 0, 0.18);
+                        position: absolute;
+                        height: 6.203%;
+                        width: 3%;
+                        border: none;
+                        border-radius: 1.5dvi;
+                        margin-top: 11.5dvi;
+                        margin-left: 0.5dvi;
+                    }
+                    .nextImg {
+                        background-color: rgba(0, 0, 0, 0.18);
+                        position: absolute;
+                        height: 6.203%;
+                        width: 3%;
+                        border: none;
+                        border-radius: 1.5dvi ;
+                        margin-top: 11.5dvi;
+                        margin-left: 16.5dvi;
+                    }
+                }
+                p {
+                    padding: 0;
+                    text-align: center;
+                    font-size: 1.2dvi;
+                }
+                label {
+                    text-align: center;
+                    border-radius: 1dvi;
+                    background-color: #3E996F;
+                    color: #FFFF;
+                    cursor: pointer;
+                }
+                label:hover {
+                    transform: scale(1.05);
+                }
+                label:active {
+                    transform: scale(1);
+                }
+            }
+            .IdentifierDelete {
+                display: flex;
+                flex-direction: row;
+                button {
+                    border: none;
+                    background-color: transparent;
+                    height: 100%;
+                    width: 10.12%;
+                    padding:0;
+                }
+                p {
+                    width: 89%;
+                }
+            }
+        }
+        .btnEstabelecimento {
+            margin: 0 4dvi 0 0 !important;
+            place-self: center !important;
+            .criarEstabelecimento {
+                background-color: #3E996F;
+                border: none;
+                border-radius: 1.2dvi;
+                color: #FFFF;
+                font-size: 1.2rem;
+                padding: 0.3dvi 0.5dvi;
+                cursor: pointer;
+                width: 10dvi;
+            }
+        }
+    }
+}

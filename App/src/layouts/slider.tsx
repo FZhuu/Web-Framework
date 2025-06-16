@@ -1,9 +1,9 @@
 import React from 'react';
 
-const ScreenWidth =window.innerWidth;
-const ScreenHeight = window.innerHeight-Math.floor(window.innerHeight*0.1);
 
 const Slider = () => {
+    const ScreenWidth =window.innerWidth;
+    const ScreenHeight = window.innerHeight-Math.floor(window.innerHeight*0.1);
     return (
         <div>
             <div id="carouselExampleIndicators" className="carousel slide">

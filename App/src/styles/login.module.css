@@ -1,5 +1,5 @@
 .fundo {
-    display: flex;;
+    display: flex;
     width: 100%;
     height: 100% !important;
     justify-content: center;
@@ -9,10 +9,10 @@
 }
 
 html body.swal2-height-auto {
-    height: 100% !important; /* ou o valor que você quiser */
+    height: 100% !important
 }
 
-.CardCadastro {
+.Cardlogin {
     background-color: whitesmoke;
     box-shadow: rgba(0, 0, 0, 0.871) 0px 0px 7px;
     border-radius: 0.7rem;
@@ -57,12 +57,12 @@ html body.swal2-height-auto {
     }
 }
 
-.voltar-mobile {
+.voltarmobile {
     display: none;
 }
 
 
-aside{
+.aside{
     height: 100%;
     width: 50%;
     display: flex;
@@ -109,48 +109,39 @@ aside{
         padding-left: 0.5rem;
         outline: 1px solid #3E996F;
     }
-    .cadastrar {
+    .login {
         color: white;
         background-color:#302163 ;
         border-radius: 1rem;
         border: none;
         font-size: large;
         margin-bottom: 0.5rem;
+        width: 80%;
+        align-self: center;
     }
-    .cadastrar:hover {
+    .login:hover {
         transform: scale(1.1);
     }
-    .cadastrar:active {
+    .login:active {
         transform: scale(0.95);
     }
 }
 
-.DivNome, .DivDatanasc, .DivEmail, .DivCPF, .DivSenha, .DivChecksenha {
+.DivEmail,.DivSenha {
     display: flex;
     flex-direction: column;
-    margin-bottom: 0.5rem;
+    margin: 0.5rem 0 ;
     font-size:medium;
 }
 
-.DivDatanasc {
-    margin-right: 1rem;
-}
-
-.FormCadastro {
+.Formlogin {
     display: flex;
     flex-direction: column;
+    height: 20rem;
+    width: 100%;
+    justify-content: center;
     margin-bottom: 1rem;
-}
-
-.DivDtNascCPF {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.senhaCondicao {
-    height: 5rem;
-    font-size: 0.7rem;
+    padding: 0 2rem 0 2rem;
 }
 
 .imgOlho {
@@ -168,20 +159,20 @@ aside{
     cursor: pointer;
 }
 
-.login-a {
+.signup {
     color: #3E996F;
     text-decoration: none;
     place-self: center;
     font-size: small;
 }
 
-.login:hover {
+.signup:hover {
     text-decoration: underline;
 }
 
 
 @media screen and (max-width: 1024px) {
-    .CardCadastro {
+    .Cardlogin {
         flex-direction: column;
         width: 37rem;
         height: 34.6rem;
@@ -190,7 +181,7 @@ aside{
         width: 100%;
         border-radius: 0 0 0.7rem 0.7rem;
     }
-    .voltar-mobile {
+    .voltarmobile {
         background-color: transparent;
         display: flex;
         border:none;
@@ -207,22 +198,14 @@ aside{
             filter: invert(100%);
         }
     }
-    aside {
-        display: none;
+    .aside {
+        display: none !important;
     }
 }
 
 
-@media screen and (max-width: 450px) {
-    html {
-        width: auto;
-        height: 100%;
-    }
-    body {
-        width: 100%;
-        height: 10%;
-    }
-    .CardCadastro {
+@media screen and (max-width: 480px) {
+    .Cardlogin {
         width: 100dvw;
         height: 100dvh;
         border-radius: 0;
@@ -237,3 +220,10 @@ aside{
     }
     
 }
+/*
+#F4FA46
+#302163
+#F7EFE6
+#3E996F
+ */
+
