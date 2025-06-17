@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from '../styles/Perfil.module.css'
 import PerfilDados from "./Modals/PerfilDados";
 import LojaSVG from '../imgs/SVGs/Loja.svg'
 
 const Perfil: React.FC = () => {
+    const [nome,SetNome] = useState(null)
     return (
         <main>
             <aside>
@@ -11,7 +12,7 @@ const Perfil: React.FC = () => {
                     <div className={styles.imgPerfil} id="imgPerfil">
                     </div>
                     <div className={styles.NomeEmail} id="NomeEmail">
-                        <h4>Nome Usuário</h4>
+                        <h4>${nome? nome:"nome do usuario"}</h4>
                         <h5>Email Usuário</h5>
                     </div>
                 </div>
