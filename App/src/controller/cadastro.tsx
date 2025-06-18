@@ -8,6 +8,7 @@ import Logo from '../imgs/logo/SVG Variações/Branco/Vertical Branco.svg';
 import { cpfMask } from './cpfmask';
 import Swal from 'sweetalert2';
 import {useNavigate} from "react-router-dom";
+import UserServices from "../Services/UserService";
 
 const Cadastro: React.FC = () => {
     const navigate =  useNavigate()

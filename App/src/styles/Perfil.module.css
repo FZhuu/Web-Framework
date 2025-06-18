@@ -5,11 +5,12 @@ main {
     height: 100%;
     justify-content: center;
     align-items: start;
-    margin: 3rem 0;
+    padding: 3rem 0;
     gap: 1dvi;
-    aside {
+    background-color: #F7EFE6 ;
+    .Aside {
         width: 25%;
-        display: flex;
+        display: flex !important;
         flex-direction: column;
         padding: 1rem 2rem;
         .FotoNome {
@@ -18,13 +19,10 @@ main {
             gap: 1dvi;
             .imgPerfil {
                 background-color: #302163;
-                background-image: url(../imgs/SVGs/perfil.svg);
-                background-size: cover;
-                background-position: center;
                 width: 5dvi;
                 height: 5dvi;
                 border-radius: 4rem;
-                border: 2px solid #302163;
+                border: 3px solid #302163;
             }
             h4 {
                 margin: 0;
@@ -83,6 +81,30 @@ main {
         }
         .AddEstabelecimento:active {
             transform: scale(0.95);
+        }
+        .estabelecimentos{
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+        }
+        .estabelecimento {
+            border: none;
+            background: none;
+            place-self: start;
+            width: 100%;
+            padding: 0.5dvi 1dvi;
+            margin: 0.5dvi 0;
+            color: #302163;
+            border-radius: 1.5dvi;
+        }
+        .estabelecimento:hover {
+            background-color: #FFFF;
+        }
+        .estabelecimento:active {
+            transform: scale(0.95);
+        }
+        .estabelecimento.active {
+            background-color: #FFFF;
         }
     }
     .informacao {
@@ -149,9 +171,6 @@ main {
                 label {
                     .Perfilimg {
                         background-color: #302163;
-                        background-image: url(../imgs/SVGs/perfil.svg);
-                        background-size: cover;
-                        background-position: center;
                         width: 8dvi;
                         height: 8dvi;
                         border-radius: 4rem;
@@ -490,34 +509,75 @@ main {
                 width: 35%;
                 height: 33.7dvi;
                 gap: 1dvi;
+                /*.Estabelecimentoimg {*/
+                /*    position: relative;*/
+                /*    background-color: #3E996F;*/
+                /*    width: 100%;*/
+                /*    height: 30dvi;*/
+                /*    border-radius: 1.2dvi;*/
+                /*    .newImgEsta {*/
+                /*        position: relative;*/
+                /*        width: 100%;*/
+                /*        height: 100%;*/
+                /*        border-radius: 1dvi;*/
+                /*    }*/
+                /*    .prevImg {*/
+                /*        background-color: rgba(0, 0, 0, 0.18);*/
+                /*        position: absolute;*/
+                /*        height: 6.203%;*/
+                /*        width: 3%;*/
+                /*        border: none;*/
+                /*        border-radius: 1.5dvi;*/
+                /*        margin-top: 11.5dvi;*/
+                /*        margin-right: 0.5dvi;*/
+                /*    }*/
+                /*    .nextImg {*/
+                /*        background-color: rgba(0, 0, 0, 0.18);*/
+                /*        position: absolute;*/
+                /*        height: 6.203%;*/
+                /*        width: 3%;*/
+                /*        border: none;*/
+                /*        border-radius: 1.5dvi ;*/
+                /*        margin-top: 11.5dvi;*/
+                /*        margin-left: 16.5dvi;*/
+                /*    }*/
+                /*}*/
                 .Estabelecimentoimg {
-                    background-image: url("https://placehold.co/300x400?text=Adicione+sua+foto");
-                    background-size: cover;
-                    background-position: center;
-                    background-repeat: no-repeat;
+                    position: relative; /* Necessário para os botões se posicionarem corretamente */
                     background-color: #3E996F;
                     width: 100%;
                     height: 30dvi;
-                    border-radius: 1dvi;
-                    .prevImg {
-                        background-color: rgba(0, 0, 0, 0.18);
+                    border-radius: 1.2dvi;
+
+                    .newImgEsta {
+                        width: 100%;
+                        height: 26.5dvi;
+                        border-radius: 1dvi;
+                        object-fit: cover;
+                    }
+
+                    .prevImg,
+                    .nextImg {
                         position: absolute;
-                        height: 6.203%;
-                        width: 3%;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        background-color: rgba(0, 0, 0, 0.18);
+                        height: 100%;
+                        width: 25%;
                         border: none;
-                        border-radius: 1.5dvi;
-                        margin-top: 11.5dvi;
-                        margin-left: 0.5dvi;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        cursor: pointer;
+                    }
+                    .prevImg {
+                        background: linear-gradient(90deg, rgba(0, 0, 0, 0.18), transparent);
+                        border-radius: 1dvi 0 0 1dvi;
                     }
                     .nextImg {
-                        background-color: rgba(0, 0, 0, 0.18);
-                        position: absolute;
-                        height: 6.203%;
-                        width: 3%;
-                        border: none;
-                        border-radius: 1.5dvi ;
-                        margin-top: 11.5dvi;
-                        margin-left: 16.5dvi;
+                        background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.18));
+                        border-radius: 0 1dvi 1dvi 0;
+                        right: 0;
                     }
                 }
                 p {
@@ -542,6 +602,10 @@ main {
             .IdentifierDelete {
                 display: flex;
                 flex-direction: row;
+                padding-left: 26px;
+                label:hover {
+                    cursor: pointer;
+                }
                 button {
                     border: none;
                     background-color: transparent;
@@ -550,7 +614,24 @@ main {
                     padding:0;
                 }
                 p {
-                    width: 89%;
+                    padding: 0;
+                }
+                .spans {
+                    display: flex;
+                    width: 100%;
+                    overflow-x: auto;
+                    align-items: center;
+                    justify-content: center;
+                }
+                span {
+                    display: flex;
+                    width: 1rem;
+                    height:  1rem;
+                    background-color: transparent;
+                    border-radius: 0.5dvi;
+                    border: 2px solid #3E996F;
+                    flex-shrink: 0;
+                    margin: 0 5px;
                 }
             }
         }
@@ -567,6 +648,50 @@ main {
                 cursor: pointer;
                 width: 10dvi;
             }
+        }
+    }
+}
+.servicos {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: end;
+    gap: 1rem;
+    label {
+        font-weight: bold;
+        font-size: 1.3dvi;
+        color: #3E996F;
+        margin-left: 0.5dvi;
+    }
+    input {
+        border:1px solid rgba(62, 62, 62);
+        border-radius: 0.3dvi;
+        width: 70%;
+        height: 50%;
+        padding-left: 0.3dvi
+    }
+    .SelectServico{
+        display: flex;
+        flex-direction: column;
+        width: 30%;
+        .select{
+            outline: none;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            text-align: center;
+            background-color: white;
+            border: 1px solid rgba(62, 62, 62);
+            padding: 2px 2.5rem 2px 5px;
+            border-radius: 4px;
+            font-size: 16px;
+
+            background-image: linear-gradient(45deg, transparent 50%, #333 50%),
+            linear-gradient(135deg, #333 50%, transparent 50%);
+            background-position: calc(100% - 20px) calc(50%),
+            calc(100% - 15px) calc(50%);
+            background-size: 5px 5px, 5px 5px;
+            background-repeat: no-repeat;
         }
     }
 }

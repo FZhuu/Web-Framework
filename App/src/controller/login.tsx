@@ -7,6 +7,7 @@ import ImagemFundo from '../imgs/Fundo-crud.jpg';
 import Logo from '../imgs/logo/SVG Variações/Branco/Vertical Branco.svg';
 import Swal from 'sweetalert2';
 import {useNavigate} from "react-router-dom";
+import UserServices from "../Services/UserService";
 
 const Login: React.FC = () => {
 
@@ -18,7 +19,6 @@ const Login: React.FC = () => {
     const emailRef = useRef<HTMLInputElement>(null);
     const senhaRef = useRef<HTMLInputElement>(null);
     const [mostrarSenha, setMostrarSenha] = useState(false);
-    const windowwidth = window.innerWidth
 
     const alternarVisibilidadeSenha = () => {
         setMostrarSenha(prev => !prev);
@@ -73,40 +73,40 @@ const Login: React.FC = () => {
         console.log(`Todos os campos preenchidos corretamente.\nemail: ${email}\nsenha: ${senha}`);
 
         try {
-            const response = await fetch('http://localhost:8080/api/login', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ Email: email, Senha: senha }),
-            })
-            if (response.ok) {
-                Swal.fire({
-                    title: 'Login feito com Sucesso',
-                    icon: 'success',
-                    timer: 3000,
-                    timerProgressBar: true,
-                    confirmButtonText: 'OK',
-                    didOpen: () => {
-                        document.body.classList.remove('swal2-height-auto');
-                    }
-                }).then((result) => {
-                    if (result.isConfirmed || result.dismiss === Swal.DismissReason.timer) {
-                        navigate('/perfil')
-                    }
-                })
-                const dados = await response.json();
-                localStorage.setItem('ID', dados.ID_usuario);
-            }
+            let response = await UserServices.login(email, senha);
             if (response.status === 401 || response.status === 404) {
-                const erro = await response.json();
+                const error = await response.json();
                 Swal.fire({
-                    title: erro.mensagem,
+                    title: error.mensagem,
                     icon: 'error',
                     didOpen: () => {
                         document.body.classList.remove('swal2-height-auto');
                         console.log('entrou')
                     }
                 })
+                return;
             }
+            const dados = await response.json();
+            console.log(dados,dados.status);
+            localStorage.setItem('token', dados.token);
+            localStorage.setItem('Email', dados.Email);
+            localStorage.setItem('ID', dados.IdUsuario);
+            localStorage.setItem('ADM', dados.ADM);
+            localStorage.setItem('Logged', "true");
+            Swal.fire({
+                title: 'Login feito com Sucesso',
+                icon: 'success',
+                timer: 3000,
+                timerProgressBar: true,
+                confirmButtonText: 'OK',
+                didOpen: () => {
+                    document.body.classList.remove('swal2-height-auto');
+                }
+            }).then((result) => {
+                if (result.isConfirmed || result.dismiss === Swal.DismissReason.timer) {
+                    navigate('/perfil')
+                }
+            })
         } catch (error) {
             Swal.fire({
                 title: 'Erro ao login',

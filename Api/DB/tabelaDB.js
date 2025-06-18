@@ -46,6 +46,20 @@ const Usuario = sequelize.define('Usuario', {
         timestamps: false,
     }
 );
+const Servico = sequelize.define('Servico', {
+    ID_servico: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+        primaryKey: true,
+        allowNull: false
+    },
+    Nome: {
+        type: DataTypes.STRING,
+        allowNull: false
+    }}, {
+    tableName: 'Servico',
+    timestamps: false,
+});
 
 const Estabelecimento = sequelize.define('Estabelecimento', {
     ID_estabelecimento: {
@@ -95,6 +109,15 @@ const Estabelecimento = sequelize.define('Estabelecimento', {
         type: DataTypes.STRING,
         allowNull: true
     },
+    ID_servico: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+            model: Servico,
+            key: 'ID_servico'
+        },
+        onDelete: 'CASCADE'
+    },
     ID_usuario: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -136,20 +159,6 @@ const FotosEstabelecimento = sequelize.define('FotosEstabelecimento', {
     timestamps: false
 });
 
-const Servico = sequelize.define('Servico', {
-    ID_servico: {
-        type: DataTypes.INTEGER,
-        autoIncrement: true,
-        primaryKey: true,
-        allowNull: false
-    },
-    Nome: {
-        type: DataTypes.STRING,
-        allowNull: false
-    }}, {
-    tableName: 'Servico',
-    timestamps: false,
-});
 
 
 const Oferta = sequelize.define('Oferta', {
@@ -166,15 +175,6 @@ const Oferta = sequelize.define('Oferta', {
     Grandeza: {
         type: DataTypes.STRING,
         allowNull: true
-    },
-    ID_servico: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-            model: Servico,
-            key: 'ID_servico'
-        },
-        onDelete: 'CASCADE'
     },
     ID_estabelecimento: {
         type: DataTypes.INTEGER,
@@ -294,61 +294,61 @@ const Historico = sequelize.define('Historico', {
     timestamps: false,
 })
 
-Estabelecimento.belongsTo(Usuario, { foreignKey: 'ID_usuario', onDelete: 'CASCADE' });
-Oferta.belongsTo(Estabelecimento, { foreignKey: 'ID_estabelecimento', onDelete: 'CASCADE' });
-Oferta.belongsTo(Servico, { foreignKey: 'ID_servico', onDelete: 'CASCADE' });
-Avaliacao.belongsTo(Oferta, { foreignKey: 'ID_oferta', onDelete: 'CASCADE' });
-Avaliacao.belongsTo(Usuario, { foreignKey: 'ID_usuario', onDelete: 'CASCADE' });
-FotosEstabelecimento.belongsTo(Estabelecimento, { foreignKey: 'ID_estabelecimento', onDelete: 'CASCADE' });
-Favoritos.belongsTo(Usuario, { foreignKey: 'ID_usuario', onDelete: 'CASCADE' });
-Favoritos.belongsTo(Estabelecimento, { foreignKey: 'ID_estabelecimento', onDelete: 'CASCADE' });
-Historico.belongsTo(Usuario, { foreignKey: 'ID_usuario', onDelete: 'CASCADE' });
-Historico.belongsTo(Estabelecimento, { foreignKey: 'ID_estabelecimento', onDelete: 'CASCADE' });
-
-Usuario.hasMany(Favoritos, {
-    foreignKey: 'ID_usuario',
-    as: 'favoritos',
-    onDelete: 'CASCADE'
-});
-
-Usuario.hasMany(Historico, {
-    foreignKey: 'ID_usuario',
-    as: 'historico',
-    onDelete: 'CASCADE'
-});
-
-Estabelecimento.hasMany(FotosEstabelecimento, {
-    foreignKey: 'ID_estabelecimento',
-    as: 'FotosEstabelecimentos',
-    onDelete: 'CASCADE'
-});
-
-// Um estabelecimento pode ter várias ofertas
-Estabelecimento.hasMany(Oferta, {
-    foreignKey: 'ID_estabelecimento',
-    as: 'Ofertas',
-    onDelete: 'CASCADE'
-});
-
-// Um estabelecimento pode ter muitos favoritos
-Estabelecimento.hasMany(Favoritos, {
-    foreignKey: 'ID_estabelecimento',
-    as: 'Favoritos',
-    onDelete: 'CASCADE'
-});
-
-// Um estabelecimento pode ter vários acessos no histórico
-Estabelecimento.hasMany(Historico, {
-    foreignKey: 'ID_estabelecimento',
-    as: 'Historico',
-    onDelete: 'CASCADE'
-});
-
-Oferta.hasMany(Avaliacao, {
-    foreignKey: 'ID_oferta',
-    as: 'Avaliacao',
-    onDelete: 'CASCADE'
-});
+// Estabelecimento.belongsTo(Usuario, { foreignKey: 'ID_usuario', onDelete: 'CASCADE' });
+// Oferta.belongsTo(Estabelecimento, { foreignKey: 'ID_estabelecimento', onDelete: 'CASCADE' });
+// Servico.belongsTo(Estabelecimento, { foreignKey: 'ID_estabelecimento', onDelete: 'CASCADE' });
+// Avaliacao.belongsTo(Oferta, { foreignKey: 'ID_oferta', onDelete: 'CASCADE' });
+// Avaliacao.belongsTo(Usuario, { foreignKey: 'ID_usuario', onDelete: 'CASCADE' });
+// FotosEstabelecimento.belongsTo(Estabelecimento, { foreignKey: 'ID_estabelecimento', onDelete: 'CASCADE' });
+// Favoritos.belongsTo(Usuario, { foreignKey: 'ID_usuario', onDelete: 'CASCADE' });
+// Favoritos.belongsTo(Estabelecimento, { foreignKey: 'ID_estabelecimento', onDelete: 'CASCADE' });
+// Historico.belongsTo(Usuario, { foreignKey: 'ID_usuario', onDelete: 'CASCADE' });
+// Historico.belongsTo(Estabelecimento, { foreignKey: 'ID_estabelecimento', onDelete: 'CASCADE' });
+//
+// Usuario.hasMany(Favoritos, {
+//     foreignKey: 'ID_usuario',
+//     as: 'favoritos',
+//     onDelete: 'CASCADE'
+// });
+//
+// Usuario.hasMany(Historico, {
+//     foreignKey: 'ID_usuario',
+//     as: 'historico',
+//     onDelete: 'CASCADE'
+// });
+//
+// Estabelecimento.hasMany(FotosEstabelecimento, {
+//     foreignKey: 'ID_estabelecimento',
+//     as: 'FotosEstabelecimentos',
+//     onDelete: 'CASCADE'
+// });
+//
+// // Um estabelecimento pode ter várias ofertas
+// Estabelecimento.hasMany(Oferta, {
+//     foreignKey: 'ID_estabelecimento',
+//     as: 'Ofertas',
+//     onDelete: 'CASCADE'
+// });
+//
+// // Um estabelecimento pode ter muitos favoritos
+// Estabelecimento.hasMany(Favoritos, {
+//     foreignKey: 'ID_estabelecimento',
+//     as: 'Favoritos',
+//     onDelete: 'CASCADE'
+// });
+//
+// // Um estabelecimento pode ter vários acessos no histórico
+// Estabelecimento.hasMany(Historico, {
+//     foreignKey: 'ID_estabelecimento',
+//     as: 'Historico',
+//     onDelete: 'CASCADE'
+// });
+//
+// Oferta.hasMany(Avaliacao, {
+//     foreignKey: 'ID_oferta',
+//     as: 'Avaliacao',
+//     onDelete: 'CASCADE'
+// });
 
 // E você também precisa das inversas para FotosEstabelecimento, Oferta, etc:
 
